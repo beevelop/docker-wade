@@ -2,4 +2,10 @@ FROM beevelop/nodejs-python-ruby
 
 MAINTAINER Maik Hummel <m@ikhummel.com>
 
-RUN npm i --unsafe-perm -g grunt-cli bower gulp
+RUN apt-get update && \
+    apt-get install -y git ssh && \
+    npm i --unsafe-perm -g grunt-cli bower gulp && \
+    
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    apt-get autoremove -y && \
+    apt-get clean
