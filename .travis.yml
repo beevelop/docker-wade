@@ -8,5 +8,5 @@ script:
   - docker run -d beevelop/wade
   - docker ps -a
   - |
-    docker run beevelop/java /bin/sh -c \
+    docker run beevelop/wade /bin/sh -c \
     "npm -v && node -v && python -V && git --version && curl -V && phantomjs -v &&protractor --version && ruby -v"
