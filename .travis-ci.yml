@@ -1,0 +1,12 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t beevelop/wade .
+  - docker run -d beevelop/wade
+  - docker ps -a
+  - |
+    docker run beevelop/java /bin/sh -c \
+    "npm -v && node -v && python -V && git --version && curl -V && phantomjs -v &&  protractor --version"
